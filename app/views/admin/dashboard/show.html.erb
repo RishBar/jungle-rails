@@ -15,3 +15,27 @@
   </li>
 
 </ul>
+
+
+
+
+      <%= form_for [:admin, @category] do |form| %>
+
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">+</span>
+          <%= form.text_field :name, class: 'form-control' %>
+        </div>
+
+        <%= form.submit 'Create Category', class: 'btn btn-primary' %>
+      <% end %>

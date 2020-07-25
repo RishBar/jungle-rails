@@ -3,5 +3,6 @@ class Admin::DashboardController < ApplicationController
   def show
     @categories = Category.all
     @items_per_category = @categories.map { |category| category.products.length }
+    @category = Category.new
   end
 end
