@@ -1,2 +1,17 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge">Items per category</span>
+    <p>Category</p>
+  </li>
+  <%@categories.each_with_index do |category, index|%>
+    <li class="list-group-item">
+      <span class="badge"><%=@items_per_category[index]%></span>
+      <a href="/categories/<%=category.id%>" ><%=category.name%></a>
+    </li>
+  <%end%>
+  <li class="list-group-item">
+    <span class="badge"><%=@items_per_category.inject(:+)%></span>
+    <a href="/admin/products" >All products</a>
+  </li>
+
+</ul>
