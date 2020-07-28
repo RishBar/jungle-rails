@@ -1,8 +1,10 @@
-<h1>Signup!</h1>
+
+
+<h1 id="signup-form">Signup!</h1>
 
 <%= form_for :user, url: '/users' do |f| %>
 
-<div id="signup-form">
+<div>
     
     Name: <%= f.text_field :name %>
     Email: <%= f.text_field :email %>
