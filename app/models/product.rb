@@ -10,4 +10,12 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  def in_stock?
+    
+    if self.quantity.positive?
+      return true
+    end
+    
+  end
+
 end

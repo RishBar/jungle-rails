@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @products = Product.where(id: @order.line_items.map {|item| item.product_id})
+    @total = @products.map { |product| product.price }.inject(:+)
   end
 
   def create

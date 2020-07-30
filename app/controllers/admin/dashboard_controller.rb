@@ -1,8 +1,8 @@
-class Admin::DashboardController < ApplicationController
-  http_basic_authenticate_with name: ENV['HTTP_BASIC_AUTH_USER'], password: ENV['HTTP_BASIC_AUTH_PASS']
+class Admin::DashboardController < Admin::BaseController
   def show
     @categories = Category.all
-    @items_per_category = @categories.map { |category| category.products.length }
     @category = Category.new
+    @total = Category.all.map { |category| category.products.length }
+                     .inject(:+)
   end
 end

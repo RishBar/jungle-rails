@@ -3,14 +3,14 @@
     <span class="badge">Items per category</span>
     <p>Category</p>
   </li>
-  <%@categories.each_with_index do |category, index|%>
+  <%@categories.each_with_index do |category|%>
     <li class="list-group-item">
-      <span class="badge"><%=@items_per_category[index]%></span>
+      <span class="badge"><%= category.products.length %></span>
       <a href="/categories/<%=category.id%>" ><%=category.name%></a>
     </li>
   <%end%>
   <li class="list-group-item">
-    <span class="badge"><%=@items_per_category.inject(:+)%></span>
+    <span class="badge"><%= @total %></span>
     <a href="/admin/products" >All products</a>
   </li>
 
